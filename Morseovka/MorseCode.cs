@@ -35,13 +35,13 @@ namespace Morseovka
         public string ToMorseCode(string text)
         {
             text = text.ToUpper();
-            StringBuilder result = new StringBuilder();
+            string result = "";
             foreach (char c in text)
             {
                 if (_MorseDict.ContainsKey(c))
                 {
-                    result.Append(_MorseDict[c]);
-                    result.Append(" ");
+                    result += _MorseDict[c] + " ";
+                    
                 }
             }
             return result.ToString();
