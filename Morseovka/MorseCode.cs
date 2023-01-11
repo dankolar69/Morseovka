@@ -8,7 +8,7 @@ namespace Morseovka
 {
     internal class MorseCode
     {
-        private Dictionary<char, string> _encodeDict = new Dictionary<char, string>()
+        private Dictionary<char, string> _MorseDict = new Dictionary<char, string>()
     {
         {'A', ".-"}, {'B', "-..."}, {'C', "-.-."}, {'D', "-.."},
         {'E', "."}, {'F', "..-."}, {'G', "--."}, {'H', "...."},
@@ -29,7 +29,7 @@ namespace Morseovka
 
         public MorseCode()
         {
-            _textDict = _encodeDict.ToDictionary(x => x.Value, x => x.Key);
+            _textDict = _MorseDict.ToDictionary(x => x.Value, x => x.Key);
         }
 
         public string ToMorseCode(string text)
@@ -38,13 +38,13 @@ namespace Morseovka
             StringBuilder result = new StringBuilder();
             foreach (char c in text)
             {
-                if (_encodeDict.ContainsKey(c))
+                if (_MorseDict.ContainsKey(c))
                 {
-                    result.Append(_encodeDict[c]);
+                    result.Append(_MorseDict[c]);
                     result.Append(" ");
                 }
             }
-            return result.ToString().Trim();
+            return result.ToString();
         }
 
         public string ToText(string code)
@@ -53,16 +53,16 @@ namespace Morseovka
 
 
 
-            code = code.Trim();
+            
             string[] words = code.Split(' ');
 
 
 
             foreach (string word in words)
             {
-                if (_decodeDict.ContainsKey(word))
+                if (_textDict.ContainsKey(word))
                 {
-                    result += _decodeDict[word];
+                    result += _textDict[word];
                 }
             }
 
