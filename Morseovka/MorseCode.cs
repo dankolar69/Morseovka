@@ -25,11 +25,11 @@ namespace Morseovka
 
     };
 
-        private Dictionary<string, char> _decodeDict;
+        private Dictionary<string, char> _textDict;
 
         public MorseCode()
         {
-            _decodeDict = _encodeDict.ToDictionary(x => x.Value, x => x.Key);
+            _textDict = _encodeDict.ToDictionary(x => x.Value, x => x.Key);
         }
 
         public string ToMorseCode(string text)
