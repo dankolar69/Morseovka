@@ -27,7 +27,7 @@ namespace Morseovka
             _decodeDict = _encodeDict.ToDictionary(x => x.Value, x => x.Key);
         }
 
-        public string Encode(string text)
+        public string ToMorseCode(string text)
         {
             text = text.ToUpper();
             StringBuilder result = new StringBuilder();
@@ -42,7 +42,7 @@ namespace Morseovka
             return result.ToString().Trim();
         }
 
-        public string Decode(string code)
+        public string ToText(string code)
         {
             string result = "";
 
